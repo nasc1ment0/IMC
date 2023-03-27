@@ -17,7 +17,7 @@ form.addEventListener('submit', function (e) {
     setResultado('Altura inválida', false);
     return;
   }
-  
+
   const imc = getImc(peso, altura);
   const nivelImc = getNivelImc(imc);
 
@@ -53,7 +53,14 @@ function getNivelImc (imc) {
     resultado.innerHTML = '';
   
     const p = criaP();
+
+    if (isValid) {
+        p.classList.add('paragrafo-resultado');
+      } else {
+        p.classList.add('bad');
+      }
   
     p.innerHTML = msg;
     resultado.appendChild(p);
+
   }
