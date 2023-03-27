@@ -24,7 +24,7 @@ form.addEventListener('submit', function (e) {
   const msg = `Seu IMC é ${imc} (${nivelImc}).`;
 
   setResultado(msg, true);
-  
+
 });
 function getNivelImc (imc) {
     const nivel = ['Abaixo do peso', 'Peso normal', 'Sobrepeso',
@@ -53,6 +53,12 @@ function getNivelImc (imc) {
   
     const p = criaP();
 
+    if (isValid) {
+      p.classList.add('paragrafo-resultado');
+    } else {
+      p.classList.add('bad');
+    }
+    
     p.innerHTML = msg;
     resultado.appendChild(p);
   }
